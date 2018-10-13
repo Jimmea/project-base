@@ -23,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->register(RepositoryFrontendProvider::class);
+        $this->app->register(RepositoryBackendProvider::class);
+
     }
 }

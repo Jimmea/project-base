@@ -2,19 +2,33 @@
 
 namespace Modules\Admin\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Routing\Controller;
+use Modules\Admin\Repositories\Product\ProductRepositoryInterface as ProductRepository;
 
-class AdminController extends Controller
+class AdminProductController extends AdminBaseController
 {
+    protected $productRepository;
+
+    public function __construct(ProductRepository $productRepository)
+    {
+        $this->productRepository = $productRepository;
+    }
+
     /**
      * Display a listing of the resource.
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin::index');
+        $filter = $this->getFilter();
+        $viewData = [
+            'products' => $this->productRepository->list($filter),
+            'quering' => $request->query()
+        ];
+
+        return view('admin::product.list')->with($viewData);
     }
 
     /**
@@ -48,9 +62,13 @@ class AdminController extends Controller
      * Show the form for editing the specified resource.
      * @return Response
      */
-    public function edit()
+    public function edit($product_id)
     {
-        return view('admin::edit');
+        $viewData = [
+            'product' => $this->productRepository->findOrFail($product_id),
+            'productDisplayOption' => Product::$mProductDisplayOptions
+        ];
+        return view('admin::product.edit')->with($viewData);
     }
 
     /**

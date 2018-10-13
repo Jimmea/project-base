@@ -1,0 +1,91 @@
+CHAPTER 6 Product Attributes
+The data tier components that support the product attributes feature include three data tables
+(attribute, attribute_value, and product_attribute) and a stored procedure named catalog_
+get_product_attributes.
+
+The three data tables follow:
+• attribute stores the name of the attributes, such as Size and Color.
+• attribute_value contains the possible attribute values for each attribute group. There
+is a one-to-many relationship between attribute and attribute_value. Each attribute,
+take Color for example, can have several values associated with it—Red, Orange, Yellow,
+and so on. We need this table to help us to link the attribute_id (like 1 for Color) to its
+attribute_value_ids for its possible values (Red, Orange, Yellow, and so on). So, it will
+contain three columns: attribute_id, which is found in the attribute table and tells us
+what kind of attribute we are talking about (e.g., a color or a size); attribute_value_id,
+the integer we assign to uniquely identify the items in the attribute_value table itself;
+and value, which will hold the text description like Orange, Red, S (for small), M (for
+medium), and so on.
+• product_attribute is an associate table implementing a many-to-many relationship
+between the product and attribute_value tables, with (product_id, attribute_value_id)
+pairs (the attribute_value table will allow us to quickly and easily populate this table).
+
+=>> Chapter6 : Figure 6-2. Diagram describing the relationships among the data tables required to implement
+
+
+
+CHAPTER 8 SEARCHING THE CATALOG
+    - search functionality of TShirtShop by using the full-text searching functionality of MySQL
+    - The search mechanism integrated very well with the current web site structure and the paging functionality built in Chapter 4.
+
+CHAPTER 9 INTEGRATE PayPal
+
+
+CHAPTER 10 Catalog Administration: Departments and Categories
+     More specifically, in this chapter we will create features that allow for
+     • Adding and removing departments
+     • Modifying existing departments’ information (name and description)
+     • Viewing the list of categories that belong to a department
+     • Adding and removing categories
+     • Editing existing categories’ information (name and description)
+
+     To secure the sensitive pages of your site, such as the administrative section, you’ll also do
+     the following:
+     • Implement a login form where the administrator needs to supply a username and
+     password.
+     • Learn how to secure the login form and the administrative pages using SSL.
+
+
+CHAPTER 11 CATALOG ADMINISTRATION: PRODUCTS AND ATTRIBUTES
+    In this chapter that will allow the site administrator to accomplish the following:
+    • Manage product attributes, specifically list attribute values, add and delete attributes,
+    and assign attributes to products
+    • View the list of products in a specific category
+    • Edit product details, such as the product’s name, description, price, or whether or not it
+    is on promotion.
+    • Assign an existing product to an additional category (a product can belong to multiple
+    categories) or move it to another category.
+    • Remove a product from a category
+    • Delete a product from the catalog.
+    • Allow administrators to access the department, category, or product administration
+    pages right from the catalog.
+
+
+
+CHAPTER 12 Creating Your Own Shopping Cart
+    -- Create shopping_cart table
+    CREATE TABLE `shopping_cart` (
+    `item_id` INT NOT NULL AUTO_INCREMENT,
+    `cart_id` CHAR(32) NOT NULL,
+    `product_id` INT NOT NULL,
+    `attributes` VARCHAR(1000) NOT NULL,
+    `quantity` INT NOT NULL,
+    `buy_now` BOOL NOT NULL DEFAULT true,
+    `added_on` DATETIME NOT NULL,
+    PRIMARY KEY (`item_id`),
+    KEY `idx_shopping_cart_cart_id` (`cart_id`)
+    );
+
+    • item_id is the primary key of the table. Its value uniquely identifies a shopping cart record.
+    • cart_id is a CHAR(32) value that uniquely identifies a visitor’s shopping cart (as opposed to just one
+    shopping cart record).
+    • product_id references the ID of an existing product.
+    • attributes is a varying character field that stores the attributes that were selected by the visitor when
+    adding the product to the shopping cart. A possible value of this field can be, for example, "Color/Size:
+    White/XL".
+    • quantity stores the product quantity in the shopping cart.
+    • buy_now is a Boolean field with the default value of true that supports the “Save for later” feature. When
+    the customer checks out, only the products that have this value set to true are added to the order, whereas
+    the “Save for later” products remain in the shopping cart.
+    • added_on is a date field that is populated with the date the product was added to the cart. This value is
+    used to calculate the age of a shopping cart, which gives us the ability to delete old shopping carts from the
+    database.

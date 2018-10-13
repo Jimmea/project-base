@@ -1,0 +1,46 @@
+# Một số rủi ro liên quan đến thương mại điện tử
+1. Hacking
+2. Lừa đảo thẻ tín dụng (Credit card scams)
+3. Lỗi phần cứng (Hardware failures)
+4. Dịch vụ giao hàng không đáng tin cậy (Unreliable shipping services)
+5. Lỗi phần mềm
+6. Thay đổi quy trình vận hành
+
+
+# Giai đoạn I: Bắt đầu một trang web
+    Thiết kế cơ sở dữ liệu cho lưu trữ sản phẩm chứa đựng: departments, categories, and products
+    Viết mã truy vấn  (SQL) và các đoạn xử lý cho việc lấy dữ liệu cho việc truy cập data và làm cho danh mục sản phẩm hoạt động
+    Thêm dữ liệu vào danh mục sản phẩm, xác định các thuộc tính sản phẩm: màu sắc và kích thước
+    Cung cấp công cụ tìm kiếm
+    Thực hiện các kỹ thuật cơ bản để làm cho công cụ tìm kiếm trang của bạn thân thiện và giảm lỗi chuyển hướng và liên kết url
+    Nhận thanh toán qua PayPal
+    Cung cấp quản trị viên trang web một phần riêng tư họ có thể quản lý
+
+# Giai đoạn II: Tạo giỏ hàng của riêng bạn
+    Tạo giỏ hàng
+    Chuyển đơn hàng hoàn chỉnh qua paypal để xử lý thẻ tín dụng
+    Thêm các tính năng ajax vào danh mục sản phẩm và giỏ mua hàng của bạn để nâng cao  trải nghiệm người dùng
+    Tạo trang quản trị đơn đặt hàng
+    Triển khai hệ thống giới thiệu sản phẩm
+
+#Giai đoạn III: Xử lý đơn đặt hàng và thêm tính năng
+    Xây dựng module tài khoản khách hàng để khách hàng có thể đăng nhập và truy xuất chi tiết mỗi khi họ đặt hàng
+    Cho phép khách hàng thêm đánh giá sản phẩm
+    Tích hợp các sản phẩm Amazon.com vào trang web của bạn bằng cách sử dụng Dịch vụ web XML
+    Thiết lập kết nối an toàn bằng cổng bảo mật (ssl) để dữ liệu cho người dùng gửi được mã hoá thông qua intenet
+    Tính phí thẻ tín dụng bằng cách sử dụng DataCash, Authorize.net và PayPal Thanh toán trang web Pro
+    (trước đây gọi là VeriSign Payflow Pro)
+    Lưu trữ số thẻ tín dụng một cách an toàn trong cơ sở dữ liệu
+
+   => Giai đoạn thứ ba này đòi hỏi một số công việc khó khăn và cẩn thận. Tuy nhiên, bạn sẽ có một trang thương mại điện tử với một danh mục sản phẩm có thể tìm kiếm,
+      giỏ mua hàng, thanh toán an toàn và hệ thống xử lý đơn đặt hàng hoàn chỉnh.
+
+Tổng kết:
+Trong thế giới thương mại điện tử. Hoạt động kinh doanh thực sự rủi ro và nhiều đối thủ. Điều quan trọng nhất là việc chúng ta
+cần tập trung vào tăng doanh thu ngắn hạn và giảm thiểu rủi ro.
+Trang web sẽ giúp ích bởi:
+    1. tăng cơ sở dữ liệu ngắn hạn
+    2. Thuyết phục khách hàng của bạn chi tiêu nhiều hơn
+    3. Giảm chi phí thực hiện
+
+

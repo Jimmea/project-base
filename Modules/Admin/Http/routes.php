@@ -2,5 +2,9 @@
 
 Route::group(['middleware' => 'web', 'prefix' => 'admin', 'namespace' => 'Modules\Admin\Http\Controllers'], function()
 {
-    Route::get('/', 'AdminController@index');
+    Route::resource('categories', 'AdminCategoryController');
+    Route::resource('departments', 'AdminDepartmentController');
+    Route::resource('products', 'AdminProductController');
+    Route::resource('attributes', 'AdminAttributeController');
+    Route::resource('attributes_value', 'AdminAttributeValueController');
 });

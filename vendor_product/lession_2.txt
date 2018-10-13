@@ -1,0 +1,52 @@
+CHAPTER 3 Starting the TShirtShop Project
+    Install and configure the necessary software on your development machine
+    Create the basic structure of the web site
+    Implement an error-handling routine and a reporting routine in the site skeleton
+    Set up the database that will be used to store catalog data, customer orders, and so on
+
+CHAPTER 4 Creating the Product Catalog: Part 1
+   Following
+        Phân tích cấu trúc của danh mục sản phẩm
+        Chức năng cần hỗ trợ
+        Tạo cấu trúc cơ sở dữ liệu cho danh mục và tầng dữ liệu của danh mục
+        Triển khai các đối tượng tầng nghiệp vụ cần thiết để làm cho danh mục chạy
+        Triển khai giao diện người dùng chức năng cho sản phẩm
+
+    Summary:
+        You created the department table and populated it with data.
+        You learned how to access this data from the data tier using PDO and then how to
+            access the data tier method from the business tier.
+        You learned how to use PHP 5 exceptions.
+
+
+CHAPTER 5 Creating the Product Catalog: Part 2
+    Hoàn thành danh mục cho sản phẩm bằng các hỗ trợ cho sản phẩm:
+        + Thêm nhiều tính năng cho danh mục mới
+        + danh mục sản phẩm
+        + trang chi tiêt sản phẩm
+        ...
+
+    More specifically, in this chapter, you will
+        1.Learn about relational data and the types of relationships that occur among data tables
+        and then create the new data structures in your database.
+        2.Learn how to join related data tables and even more theory about MySQL stored procedures
+          and techniques.
+
+        3. Complete the business tier to work with the new MySQL stored procedures, send
+           parameters, and pass requested data to the presentation tier.
+        4.  Complete the presentation tier to show your visitor details about the catalog’s categories,
+           products, and more
+
+
+    • catalog_get_department_details
+    • catalog_get_categories_list
+    • catalog_get_category_details
+    • catalog_count_products_in_category
+    • catalog_get_products_in_category
+    • catalog_count_products_on_department
+    • catalog_get_products_on_department
+    • catalog_count_products_on_catalog
+    • catalog_get_products_on_catalog
+    • catalog_get_product_details
+    • catalog_get_product_locations
+
