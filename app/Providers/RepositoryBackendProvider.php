@@ -18,6 +18,8 @@ use Modules\Admin\Repositories\Category\CategoryRepositoryInterface;
 use Modules\Admin\Repositories\Department\DepartmentRepository;
 use Modules\Admin\Repositories\Department\DepartmentRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
+use Modules\Admin\Repositories\Order\OrderRepository;
+use Modules\Admin\Repositories\Order\OrderRepositoryInterface;
 use Modules\Admin\Repositories\Product\ProductRepository;
 use Modules\Admin\Repositories\Product\ProductRepositoryInterface;
 
@@ -38,6 +40,8 @@ class RepositoryBackendProvider extends ServiceProvider
         $this->app->bind(AttributeValueRepositoryInterface::class, AttributeValueRepository::class);
 
         $this->app->bind(ProductRepositoryInterface::class, ProductRepository::class);
+
+        $this->app->bind(OrderRepositoryInterface::class, OrderRepository::class);
     }
 
     public function boot()

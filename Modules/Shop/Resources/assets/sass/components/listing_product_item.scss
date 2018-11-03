@@ -1,0 +1,31 @@
+.page__category-item {
+  &-group {
+    margin-right: 1.3%;
+    margin-bottom: 5%;
+  }
+  &-link {
+    width: 236px;
+    &:hover {
+      text-decoration: none;
+      color: #333;
+    }
+  }
+  &-brand {
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+  }
+  &-name {
+    padding-top: 5px;
+    h2 {
+      font-size: 14px;
+    }
+  }
+  &-price {
+    //color: #FF9800;
+    //font-weight: 600;
+  }
+  &-buy {
+    //display: none;
+  }
+}

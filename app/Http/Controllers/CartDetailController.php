@@ -9,8 +9,11 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Order;
+use App\Models\OrderDetail;
 use App\Models\Product;
 use App\Models\ShoppingCart;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class CartDetailController extends Controller
@@ -64,18 +67,61 @@ class CartDetailController extends Controller
         return redirect()->back();
     }
 
-    public function updateCartQtyProduct(Request $request)
+    public function postCartExecute(Request $request)
     {
-        $cart_id_arr = $request->get('cart_id', []);
-        $qty_arr     = $request->get('quantity', []);
-        if ($cart_id_arr)
+        $buttonSubmit = $request->get('btn_submit');
+        if ($buttonSubmit == 'Updated')
         {
-            foreach ($cart_id_arr as $key => $item)
+            // Update qty
+            $cart_id_arr = $request->get('cart_id', []);
+            $qty_arr     = $request->get('quantity', []);
+            if ($cart_id_arr)
             {
-                $qty = array_get($qty_arr, $key);
-                $qty = $qty ?? 1;
-                ShoppingCart::updateCartQty($item, $qty);
+                foreach ($cart_id_arr as $key => $item)
+                {
+                    $qty = array_get($qty_arr, $key);
+                    $qty = $qty ?? 1;
+                    ShoppingCart::updateCartQty($item, $qty);
+                }
             }
+        }
+        else
+        {
+            // Set cart empty
+            $data = [ 'created_on' => Carbon::now()];
+            $order = Order::createOrder($data);
+
+            $order_id = $order->order_id;
+            if ($order_id)
+            {
+                $total_amount = 0;
+                $carts = ShoppingCart::getCartProduct();
+                foreach ($carts as $item)
+                {
+                    if ($product = $item->product)
+                    {
+                        $unit_cost = $product->discounted_price > 0 ? $product->discounted_price : $product->price;
+                        OrderDetail::create([
+                            'order_id'=> $order_id,
+                            'product_id'=> $item->product_id,
+                            'product_name' => $item->product->name,
+                            'attributes' => $item->attributes,
+                            'quantity' => $item->quantity,
+                            'unit_cost' => $unit_cost
+                        ]);
+
+                        $total_amount += ($unit_cost*$item->quantity);
+                    }
+                }
+            }
+
+            // Update
+            Order::where('order_id', $order_id)->update([
+                'total_amount'=>  $total_amount,
+            ]);
+
+            // Set cart empty
+            ShoppingCart::setCartEmpty();
         }
 
         return redirect()->back();

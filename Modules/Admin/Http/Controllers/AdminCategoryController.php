@@ -41,7 +41,7 @@ class AdminCategoryController extends AdminBaseController
      */
     public function create()
     {
-        return view('admin::category.create');
+        return view('admin::category.add');
     }
 
     /**
