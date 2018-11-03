@@ -1,0 +1,21 @@
+.page__category-filter {
+  padding: 10px 0;
+  border: 1px solid #f2f2f2;
+  .page__category-filter-heading.text-center {
+    font-weight: 600;
+  }
+  .page__category-filter-body {
+    li.list-group-item {
+      border: none;
+      padding: 0.5em 1rem;
+      font-size: 14px;
+      label {
+        margin-bottom: 0;
+        width: 100%;
+      }
+    }
+  }
+}
+
+
+

@@ -112,10 +112,6 @@ class ShoppingCart extends Model
         return $mShoppingCart;
     }
 
-    public function getCartTotalAmount($cartId)
-    {
-
-    }
 
     public static function saveCartProductForLaterOrNow($cart_id, $later = 0)
     {
@@ -126,4 +122,13 @@ class ShoppingCart extends Model
         ]);
 
     }
+
+    public static function setCartEmpty($buyNow = 1)
+    {
+        self::where('cart_id', self::getCartId())
+            ->where('buy_now', $buyNow)
+            ->delete();
+    }
+
+
 }

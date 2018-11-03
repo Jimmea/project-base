@@ -89,3 +89,22 @@ CHAPTER 12 Creating Your Own Shopping Cart
     • added_on is a date field that is populated with the date the product was added to the cart. This value is
     used to calculate the age of a shopping cart, which gives us the ability to delete old shopping carts from the
     database.
+
+
+CHAPTER 15 ■ PRODUCT RECOMMENDATIONS
+    You can implement a product recommendations system in several ways, depending on your
+    kind of store. Here are a few popular ones:
+    - Up-Selling: Up-selling is the strategy of offering consumers the opportunity to purchase
+    an upgrade or a little something extra based on their requested purchase. Perhaps the
+    most famous example of up-selling—“Would you like to super-size that?”—is mentioned
+    to customers when they order a meal at McDonald’s. This seemingly innocent question
+    greatly increases the company’s profit margin.
+    - Cross-Selling: Cross-selling is the practice of offering customers complementary products.
+    Continuing with the McDonald’s analogy, when someone orders a hamburger, you’ll always
+    hear the phrase, “Would you like fries with that?” Because it’s widely acknowledged that fries
+    go with burgers, and the consumer is ordering a burger, it’s likely that the consumer also
+    likes french fries—the mere mention of french fries is likely to generate a new sale.
+    - Featured products on the home page: TShirtShop already permits the site administrator to
+    choose the products featured on the main page and on the department pages.
+
+

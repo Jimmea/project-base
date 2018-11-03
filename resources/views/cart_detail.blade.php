@@ -18,7 +18,7 @@
                <div class="row mt-5">
                    <div class="col-md-12">
                        <h1>Product in your shopping cart</h1>
-                       <form action="{{ route('post.cart.update_quantity') }}" method="post" target="_self">
+                       <form action="{{ route('post.cart.execute') }}" method="post" target="_self">
                            {{ csrf_field() }}
                            <table class="table table-inverse">
                                <thead class="thead-inverse">
@@ -60,7 +60,8 @@
                                <tr>
                                    <td colspan="4">Total amount: ${{ $subTotal }}</td>
                                    <td>
-                                       <button type="submit" class="btn btn-primary btn-sm">Update</button>
+                                       <input type="submit" name="btn_submit" class="btn btn-primary btn-sm" value="Updated">
+                                       <input type="submit" name="btn_submit" class="btn btn-success btn-sm" value="Placed Order">
                                    </td>
                                </tr>
                                </tfoot>
