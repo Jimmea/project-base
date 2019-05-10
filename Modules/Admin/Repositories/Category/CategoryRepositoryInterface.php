@@ -15,4 +15,6 @@ interface CategoryRepositoryInterface
     public function findOrFail($id);
     public function create($input);
     public function findOneBy($filter,$fields);
+    public function getAllCategory($fields, $parent_id, $filters);
+    public function updateCategoryHasChild($cat_parent_id, $cat_id, $action='');
 }

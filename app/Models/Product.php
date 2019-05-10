@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $table = 'product';
     use FullTextSearch;
+    protected $table = 'products';
     public $searchable = ['name','description'];
 
     // Defines product display options

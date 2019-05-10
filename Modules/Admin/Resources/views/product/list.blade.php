@@ -1,5 +1,5 @@
 @extends('admin::layouts.master')
-@section('title', "DANH SÁCH SẢN PHẨM")
+@section('title', "Danh sách sản phẩm")
 @section('content')
     <div class="row mb-3">
         <div class="col-md-12 mb-2">
@@ -20,7 +20,7 @@
                             <label class="sr-only" for="inlineFormInputGroupUsername2">Loại</label>
                             <div class="input-group mb-2 mr-sm-2">
                                 <select name="type" class="form-control">
-                                    <option value="">Chọn loại danh mục</option>
+                                    <option value="">Loại danh mục</option>
                                     <option value="">Tin tức</option>
                                     <option value="">Sản phẩm</option>
                                     <option value="">Trang tĩnh</option>
@@ -32,7 +32,7 @@
                 </div>
 
                 <div class="box-header-action pull-right">
-                    <a href="{{ route('categories.create') }}" class="btn btn-primary">Thêm mới</a>
+                    {{--<a href="{{ route('categories.create') }}" class="btn btn-primary">Thêm mới</a>--}}
                     <a href="" class="btn btn-info">Xuất Excel</a>
                 </div>
             </div>
@@ -60,7 +60,7 @@
                             <td>{{ $item->price }}</td>
                             <td>{{ $item->discounted_price }}</td>
                             <td>
-                                <a href="{{ route('products.edit', $item->id) }}" class="btn btn-outline-dark btn-sm">Edit</a>
+                                {{--<a href="{{ route('products.edit', $item->id) }}" class="btn btn-outline-dark btn-sm">Edit</a>--}}
                             </td>
                         </tr>
                     @endforeach

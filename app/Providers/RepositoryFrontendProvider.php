@@ -9,8 +9,8 @@
 namespace App\Providers;
 
 
-use App\Repositories\Frontend\Product\ProductRepository;
-use App\Repositories\Frontend\Product\ProductRepositoryInterface;
+use Modules\Shop\Repositories\Product\ProductRepository;
+use Modules\Shop\Repositories\Product\ProductRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryFrontendProvider extends ServiceProvider

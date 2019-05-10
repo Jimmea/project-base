@@ -11,3 +11,6 @@
 Route::group(['middle'=> 'web', 'namespace' => 'Frontend'], function () {
     Route::get('/{any?}', 'SwitchController@anyview')->where('any', '.*');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

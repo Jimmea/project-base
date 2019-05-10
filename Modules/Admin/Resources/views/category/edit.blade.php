@@ -1,5 +1,5 @@
 @extends('admin::layouts.master')
-@section('title', "CẬP NHẬT DANH MỤC")
+@section('title', "Cập nhật danh mục")
 @section('content')
-    @include('admin::category.form')
+    @include('admin::category.form', ['action'=> route('categories.update', $category->id)])
 @stop

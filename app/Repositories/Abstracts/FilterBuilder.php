@@ -16,15 +16,10 @@ trait FilterBuilder
         return $model->where(function($q) use ($filter) {
             if (!empty($filter))
             {
-                $fillable = $this->model->getFillable();
-
                 foreach ($filter as $f)
                 {
                     list($col, $ope, $val) = $f;
-                    if (in_array($col, $fillable))
-                    {
-                        $q->where($col, $ope, $val);
-                    }
+                    $q->where($col, $ope, $val);
                 }
             }
         });
